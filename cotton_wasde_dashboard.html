@@ -58,7 +58,7 @@
     color: #e2e8f0;
   }
   body.dark .wide-table td.col-highlight {
-    background: #1e3a5f !important;
+    background: #dbeafe !important;
   }
   body.dark .wide-table th.col-highlight {
     background: #1e3a5f !important;
@@ -286,7 +286,7 @@
     transition: all 0.15s;
     font-weight: 500;
   }
-  .seg-btn.active { background: var(--gold, var(--acc)); color: #000; font-weight: 700; }
+  .seg-btn.active { background: var(--gold, #92680a); color: #ffffff; font-weight: 700; }
   .seg-btn:hover:not(.active) { color: var(--text); background: var(--bord, var(--border)); }
 
   select {
@@ -332,6 +332,7 @@
   }
   .wide-table th:first-child {
     cursor: default;
+    pointer-events: none;
   }
     .wide-table th:first-child {
     text-align: left;
@@ -365,6 +366,7 @@
   }
   .wide-table th:first-child {
     cursor: default;
+    pointer-events: none;
   }
     .wide-table th:first-child { text-align: left; min-width: 140px; }
   .wide-table td {
@@ -494,7 +496,7 @@
     color: #e2e8f0;
   }
   body.dark .wide-table td.col-highlight {
-    background: #1e3a5f !important;
+    background: #dbeafe !important;
   }
   body.dark .wide-table th.col-highlight {
     background: #1e3a5f !important;
@@ -512,6 +514,51 @@
   body.dark .nav-tab { color: #94a3b8; }
   body.dark .nav-tab.active { color: #d4a947; }
   body.dark #theme-toggle { border-color: rgba(255,255,255,0.25); }
+
+
+  body.dark .seg-group {
+    background: #1e2235;
+    border-color: #334155;
+  }
+  body.dark .seg-btn {
+    color: #cbd5e1;
+  }
+  body.dark .seg-btn.active {
+    background: #d4a947;
+    color: #0f1117;
+    font-weight: 700;
+  }
+  body.dark .seg-btn:hover:not(.active) {
+    background: #2a3548;
+    color: #e2e8f0;
+  }
+  body.dark select {
+    background: #1e2235;
+    color: #e2e8f0;
+    border-color: #334155;
+  }
+  body.dark .nav-tab {
+    color: #94a3b8;
+  }
+  body.dark .nav-tab.active {
+    color: #d4a947;
+    border-bottom-color: #d4a947;
+  }
+  body.dark .ctrl-label {
+    color: #94a3b8;
+  }
+  body.dark .note {
+    color: #94a3b8;
+  }
+  body.dark .card {
+    background: #1a1d27;
+    border: 1px solid #2a3548;
+  }
+  body.dark #rev-data-note {
+    color: #94a3b8;
+    background: #1e2235;
+    border-left-color: #d4a947;
+  }
 
 </style>
 </head>
@@ -928,8 +975,8 @@ const MONTH_NUM = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,
 const SLOT_ORDER = ['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'];
 
 // ── Country Compare state ─────────────────────────────────────────────────────
-const CC_COUNTRIES = ['United States','World','India','China','Brazil','Australia','Pakistan','Turkey','Indonesia','Bangladesh','Vietnam'];
-const CC_COLORS    = ['#3b82f6','#f59e0b','#10b981','#ef4444','#8b5cf6','#06b6d4','#f97316','#e11d48','#0891b2','#7c3aed','#65a30d'];
+const CC_COUNTRIES = ['United States','World','India','China','Brazil','Australia','Pakistan'];
+const CC_COLORS    = ['#3b82f6','#f59e0b','#10b981','#ef4444','#8b5cf6','#06b6d4','#f97316'];
 let ccAttr     = 'Production';
 let ccTime     = 'monthly';
 let ccSelected = new Set(['United States','World','India']);
