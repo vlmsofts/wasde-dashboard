@@ -27,6 +27,57 @@
     --acc:      #92680a;
     --spread:   #7e22ce;
     /* Legacy aliases for existing code */
+  }
+  /* ── DARK MODE ── */
+  body.dark {
+    --bg:       #0f1117;
+    --surf:     #1a1d27;
+    --surf2:    #22263a;
+    --hdr:      #141618;
+    --bord:     #2a3548;
+    --bord2:    #334155;
+    --text:     #e2e8f0;
+    --dim:      #cbd5e1;
+    --muted:    #94a3b8;
+    --text2:    #cbd5e1;
+    --text3:    #94a3b8;
+    --surface:  #1a1d27;
+    --surface2: #22263a;
+    --border:   #2a3548;
+  }
+  body.dark .wide-table th {
+    background: #1e2235;
+    color: #e2e8f0;
+    border-bottom: 3px solid #e2e8f0;
+  }
+  body.dark .wide-table th:first-child {
+    background: #1e2235;
+  }
+  body.dark .wide-table td:first-child {
+    background: #1a1d27;
+    color: #e2e8f0;
+  }
+  body.dark .wide-table td.col-highlight {
+    background: #1e3a5f !important;
+  }
+  body.dark .wide-table th.col-highlight {
+    background: #1e3a5f !important;
+    color: #e2e8f0 !important;
+  }
+  body.dark .head-row td {
+    background: #1e2235;
+    color: #e2e8f0;
+    border-top: 3px solid #e2e8f0;
+  }
+  body.dark .card {
+    background: var(--surf);
+    border: 1px solid var(--bord);
+  }
+  body.dark .nav-tab { color: #94a3b8; }
+  body.dark .nav-tab.active { color: #d4a947; }
+  body.dark #theme-toggle { border-color: rgba(255,255,255,0.25); }
+
+  .dummy-placeholder {
     --surface:  var(--surf);
     --surface2: var(--surf2);
     --border:   var(--bord);
@@ -268,7 +319,21 @@
     white-space: nowrap;
     border-bottom: 3px solid #1a202c;
   }
+  .wide-table th.col-highlight {
+    background: #c7d9f5 !important;
+    color: #1a202c !important;
+  }
+  .wide-table td.col-highlight {
+    background: #e8f0fe !important;
+  }
+  .wide-table th {
+    cursor: pointer;
+    user-select: none;
+  }
   .wide-table th:first-child {
+    cursor: default;
+  }
+    .wide-table th:first-child {
     text-align: left;
     background: #e8edf2;
     border-right: 2px solid #1a202c;
@@ -287,7 +352,21 @@
   .wide-table tr:hover td:first-child {
     background: var(--surf2, var(--surface2));
   }
-  .wide-table th:first-child { text-align: left; min-width: 140px; }
+  .wide-table th.col-highlight {
+    background: #c7d9f5 !important;
+    color: #1a202c !important;
+  }
+  .wide-table td.col-highlight {
+    background: #e8f0fe !important;
+  }
+  .wide-table th {
+    cursor: pointer;
+    user-select: none;
+  }
+  .wide-table th:first-child {
+    cursor: default;
+  }
+    .wide-table th:first-child { text-align: left; min-width: 140px; }
   .wide-table td {
     padding: 7px 14px;
     text-align: right;
@@ -384,9 +463,59 @@
     .chart-grid { grid-template-columns: 1fr; }
     .trend-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── DARK MODE ── */
+  body.dark {
+    --bg:       #0f1117;
+    --surf:     #1a1d27;
+    --surf2:    #22263a;
+    --hdr:      #141618;
+    --bord:     #2a3548;
+    --bord2:    #334155;
+    --text:     #e2e8f0;
+    --dim:      #cbd5e1;
+    --muted:    #94a3b8;
+    --text2:    #cbd5e1;
+    --text3:    #94a3b8;
+    --surface:  #1a1d27;
+    --surface2: #22263a;
+    --border:   #2a3548;
+  }
+  body.dark .wide-table th {
+    background: #1e2235;
+    color: #e2e8f0;
+    border-bottom: 3px solid #e2e8f0;
+  }
+  body.dark .wide-table th:first-child {
+    background: #1e2235;
+  }
+  body.dark .wide-table td:first-child {
+    background: #1a1d27;
+    color: #e2e8f0;
+  }
+  body.dark .wide-table td.col-highlight {
+    background: #1e3a5f !important;
+  }
+  body.dark .wide-table th.col-highlight {
+    background: #1e3a5f !important;
+    color: #e2e8f0 !important;
+  }
+  body.dark .head-row td {
+    background: #1e2235;
+    color: #e2e8f0;
+    border-top: 3px solid #e2e8f0;
+  }
+  body.dark .card {
+    background: var(--surf);
+    border: 1px solid var(--bord);
+  }
+  body.dark .nav-tab { color: #94a3b8; }
+  body.dark .nav-tab.active { color: #d4a947; }
+  body.dark #theme-toggle { border-color: rgba(255,255,255,0.25); }
+
 </style>
 </head>
-<body class="light">
+<body class="dark">
 
 <div class="header">
   <div class="header-left">
@@ -395,6 +524,11 @@
     <div class="header-title">COTTON WASDE DASHBOARD</div>
   </div>
   <div class="header-right">
+    <button id="theme-toggle" onclick="toggleTheme()" style="
+      background:none;border:1px solid rgba(255,255,255,0.25);border-radius:4px;
+      color:inherit;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:0.5px;
+      padding:5px 10px;margin-right:8px;transition:all 0.2s;
+    ">☀ LIGHT</button>
     <span class="wasde-badge" id="latest-badge">WASDE 670</span>
     <span class="crop-yr-badge">2025/26 CURRENT CROP</span>
     <div id="countdown-block" style="display:flex;align-items:center;gap:8px;"></div>
@@ -977,7 +1111,7 @@ function renderBalanceSheet() {
   const t = document.getElementById('bs-wide-table');
   const mys_display = [...mys].reverse();
   let html = '<thead><tr><th class="sticky-col">Region / Item</th>';
-  mys_display.forEach(m => { html += `<th>${m}</th>`; });
+  mys_display.forEach((m, ci) => { html += `<th data-col="${ci+1}" onclick="highlightCol(${ci+1})">${m}</th>`; });
 
   html += '</tr></thead><tbody>';
 
@@ -985,9 +1119,9 @@ function renderBalanceSheet() {
     html += `<tr class="head-row"><td colspan="${mys.length+2}">${attr.toUpperCase()}</td></tr>`;
     regions.forEach(region=>{
       html += `<tr><td class="sticky-col">${FLAGS[region]||''} ${region}</td>`;
-      mys_display.forEach(m=>{
+      mys_display.forEach((m, ci)=>{
         const v = W.latest[region]&&W.latest[region][m]&&W.latest[region][m][attr];
-        html += `<td>${v!==null&&v!==undefined ? fmt(v) : '—'}</td>`;
+        html += `<td data-col="${ci+1}">${v!==null&&v!==undefined ? fmt(v) : '—'}</td>`;
       });
       if(showMom){
         const c=W.latest[region]&&W.latest[region][my]&&W.latest[region][my][attr];
@@ -1001,10 +1135,10 @@ function renderBalanceSheet() {
       html += `<tr class="head-row"><td colspan="${mys.length+2}">STOCKS-TO-USE RATIO</td></tr>`;
       regions.forEach(region=>{
         html += `<tr><td style="color:var(--purple)">${FLAGS[region]||''} ${region} S/U</td>`;
-        mys_display.forEach(m=>{
+        mys_display.forEach((m, ci)=>{
           const e=W.latest[region]&&W.latest[region][m]&&W.latest[region][m]['Ending Stocks'];
           const d=W.latest[region]&&W.latest[region][m]&&W.latest[region][m]['Domestic Use'];
-          html += `<td>${e&&d&&d>0?(e/d*100).toFixed(1)+'%':'—'}</td>`;
+          html += `<td data-col="${ci+1}">${e&&d&&d>0?(e/d*100).toFixed(1)+'%':'—'}</td>`;
         });
         if(showMom) html += '<td></td>';
         html += '</tr>';
@@ -1602,6 +1736,50 @@ function renderReliability() {
   });
 }
 
+
+
+// ── THEME TOGGLE ─────────────────────────────────────────────────────────────
+function toggleTheme() {
+  const body = document.body;
+  const btn  = document.getElementById('theme-toggle');
+  if (body.classList.contains('dark')) {
+    body.classList.replace('dark', 'light');
+    btn.textContent = '☀ LIGHT';
+    localStorage.setItem('vlm-theme', 'light');
+  } else {
+    body.classList.replace('light', 'dark');
+    btn.textContent = '☾ DARK';
+    localStorage.setItem('vlm-theme', 'dark');
+  }
+  // Re-render all charts with new colors
+  renderRevisions();
+  renderCountries();
+  renderTrends();
+  renderReliability();
+}
+
+// Apply saved theme on load
+(function() {
+  const saved = localStorage.getItem('vlm-theme') || 'dark';
+  document.body.className = saved;
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.textContent = saved === 'dark' ? '☾ DARK' : '☀ LIGHT';
+})();
+
+// ============================================================
+// BALANCE SHEET COLUMN HIGHLIGHT
+// ============================================================
+let activeCol = null;
+function highlightCol(colIdx) {
+  if (activeCol === colIdx) {
+    document.querySelectorAll('.wide-table .col-highlight').forEach(el => el.classList.remove('col-highlight'));
+    activeCol = null;
+    return;
+  }
+  document.querySelectorAll('.wide-table .col-highlight').forEach(el => el.classList.remove('col-highlight'));
+  document.querySelectorAll(`.wide-table [data-col="${colIdx}"]`).forEach(el => el.classList.add('col-highlight'));
+  activeCol = colIdx;
+}
 
 // ══════════════════════════════════════════════════════════════
 // CHART EXPAND MODAL
