@@ -26,7 +26,21 @@
     --blue:     #1e40af;
     --acc:      #92680a;
     --spread:   #7e22ce;
-    /* Legacy aliases for existing code */
+    /* Aliases used throughout the code */
+    --surface:  #ffffff;
+    --surface2: #f4f6f8;
+    --border:   #c8d4e0;
+    --border2:  #b0bfd0;
+    --text2:    #374151;
+    --text3:    #4b5563;
+    --green:    #15803d;
+    --accent:   #92680a;
+    --purple:   #7e22ce;
+    --orange:   #c2540a;
+    --teal:     #0e7490;
+    /* Header text colours (header bg is always dark) */
+    --hdr-text: #e2e8f0;
+    --hdr-text2: #cbd5e1;
   }
   /* ── DARK MODE ── */
   body.dark {
@@ -115,13 +129,13 @@
     height: 56px;
   }
   .header-left { display: flex; align-items: center; gap: 16px; }
-  .logo { font-family: 'Inter Tight', 'Inter', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
-  .header-divider { width: 1px; height: 20px; background: var(--border2); }
-  .header-title { font-family: 'Inter Tight', 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--text2); letter-spacing: 1px; }
-  .header-right { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text); }
+  .logo { font-family: 'Inter Tight', 'Inter', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: 3px; color: #d4a947; text-transform: uppercase; line-height: 1; }
+  .header-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.25); }
+  .header-title { font-family: 'Inter Tight', 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #cbd5e1; letter-spacing: 1px; }
+  .header-right { display: flex; align-items: center; gap: 12px; font-size: 11px; color: #cbd5e1; }
   .wasde-badge { background: var(--gold); color: #000; padding: 3px 8px; border-radius: 3px; font-weight: 500; font-size: 10px; letter-spacing: 1px; }
-  .crop-yr-badge { background: var(--surface2); border: 1px solid var(--border2); padding: 3px 8px; border-radius: 3px; font-size: 10px; color: var(--gold2); }
-  .new-crop-note { background: rgba(212,169,71,0.12); border: 1px solid rgba(212,169,71,0.35); padding: 3px 10px; border-radius: 3px; font-size: 10px; color: var(--gold2); }
+  .crop-yr-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 3px 8px; border-radius: 3px; font-size: 10px; color: #d4a947; }
+  .new-crop-note { background: rgba(212,169,71,0.12); border: 1px solid rgba(212,169,71,0.35); padding: 3px 10px; border-radius: 3px; font-size: 10px; color: #d4a947; }
 
   /* === TABS === */
   .nav-tabs {
@@ -603,12 +617,25 @@
       WASDE 670 — Apr 2026 Narrative Summary
     </div>
     <div style="font-size:14px;line-height:1.8;color:var(--text,#1a202c)">
-      The USDA Apr 2026 WASDE (670) revised 2025/26 cotton supply and use estimates.
-      World production was raised 0.88M bales to 121.87M bales.
-      World ending stocks were up 0.65M bales to 77.04M bales, with consumption up 0.56M bales.
-      U.S. estimates were unchanged across the board.
-      Notable country changes: India production +0.30M; India ending stocks +0.50M;
-      India exports -0.20M; China production +0.30M; China ending stocks +0.20M.
+      <strong style="color:var(--gold,#92680a)">U.S. Cotton:</strong>
+      The 2025/26 U.S. cotton supply and use estimates are unchanged from March. Planted area is projected at 9.28 million acres with harvested area of 7.80 million acres and a yield of 856 lbs/acre. Production is projected at 13.92 million 480-lb bales. Domestic use at 1.60 million bales and exports at 12.00 million bales are unchanged. Ending stocks remain at 4.40 million bales, and the farm price is unchanged at 60 cents per pound.
+    </div>
+    <div style="font-size:14px;line-height:1.8;color:var(--text,#1a202c);margin-top:10px">
+      <strong style="color:var(--gold,#92680a)">World Cotton:</strong>
+      Global 2025/26 cotton projections show higher production, consumption, trade, and ending stocks relative to March. World production is raised 0.88 million bales to 121.87 million, driven primarily by higher output in India (+0.30M bales) and China (+0.30M bales), with smaller increases in Pakistan and Brazil. World consumption rises 0.56 million bales to 119.14 million on higher mill use in China (+0.50M) and India. World exports increase 0.19 million bales to 43.72 million, while imports are marginally lower. World ending stocks increase 0.65 million bales to 77.04 million bales — the highest since 2020/21 — with the global stocks-to-use ratio rising to approximately 64.7%.
+    </div>
+    <div style="font-size:14px;line-height:1.8;color:var(--text,#1a202c);margin-top:10px">
+      <strong style="color:var(--gold,#92680a)">Key Country Changes vs. March (WASDE 669→670):</strong>
+      <span style="display:block;margin-top:4px">
+        • <strong>India:</strong> Production +0.30M → 23.80M bales; Ending stocks +0.50M → 10.82M; Exports −0.20M → 1.20M; Imports +0.20M → 4.20M<br>
+        • <strong>China:</strong> Production +0.30M → 35.80M bales; Ending stocks +0.20M → 36.56M; Mill use +0.50M → 40.00M<br>
+        • <strong>Brazil:</strong> Production unchanged at 19.50M bales; Ending stocks unchanged at 5.02M<br>
+        • <strong>Pakistan:</strong> Production +0.30M → 5.30M bales; Imports −0.30M → 5.20M<br>
+        • <strong>Australia:</strong> No change from March
+      </span>
+    </div>
+    <div style="font-size:11px;color:var(--text3,#4b5563);margin-top:10px;padding-top:8px;border-top:1px solid var(--bord,#c8d4e0)">
+      Source: USDA WASDE No. 670, April 9, 2026 · Next release: May 12, 2026 (WASDE 671 — first 2026/27 new-crop projection)
     </div>
   </div>
 
@@ -1947,9 +1974,158 @@ function closeExpandChart() {
   document.body.style.overflow = '';
 }
 
-// Close on Escape
+// ============================================================
+// RELEASE CALENDAR MODAL
+// ============================================================
+function showCalendar() {
+  const existing = document.getElementById('cal-modal-overlay');
+  if (existing) { existing.remove(); return; }
+
+  const today = new Date();
+  const schedule = W.wasde_schedule || [];
+
+  // Find next upcoming release
+  let nextRelease = null;
+  for (const r of schedule) {
+    const rd = new Date(r.date + 'T12:00:00');
+    if (rd >= today) { nextRelease = { ...r, dateObj: rd }; break; }
+  }
+
+  // Countdown string
+  function countdown(target) {
+    const diff = target - new Date();
+    if (diff <= 0) return 'Released';
+    const days = Math.floor(diff / 86400000);
+    const hrs  = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    if (days > 0) return `${days}d ${hrs}h ${mins}m`;
+    return `${hrs}h ${mins}m`;
+  }
+
+  const isDark = !document.body.classList.contains('light');
+  const bgColor = isDark ? '#1a1d27' : '#ffffff';
+  const textCol = isDark ? '#e2e8f0' : '#1a202c';
+  const subCol  = isDark ? '#94a3b8' : '#4a5568';
+  const surfCol = isDark ? '#22263a' : '#f4f6f8';
+  const bordCol = isDark ? '#2a3548' : '#c8d4e0';
+
+  const overlay = document.createElement('div');
+  overlay.id = 'cal-modal-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:9999;display:flex;align-items:center;justify-content:center;';
+  overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
+
+  const box = document.createElement('div');
+  box.style.cssText = `background:${bgColor};border-radius:8px;padding:24px;width:min(680px,96vw);max-height:85vh;overflow-y:auto;position:relative;color:${textCol};`;
+
+  // Countdown banner
+  let bannerHTML = '';
+  if (nextRelease) {
+    const cdStr = countdown(nextRelease.dateObj);
+    const newCropTag = nextRelease.newCrop ? ' <span style="font-size:9px;background:#92680a;color:#fff;border-radius:3px;padding:2px 6px;letter-spacing:1px;margin-left:6px;">NEW CROP</span>' : '';
+    bannerHTML = `
+      <div style="background:rgba(212,169,71,0.1);border:1px solid rgba(212,169,71,0.35);border-radius:6px;padding:14px 18px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div>
+          <div style="font-size:9px;letter-spacing:2px;color:#d4a947;margin-bottom:4px;">NEXT WASDE RELEASE</div>
+          <div style="font-size:17px;font-weight:700;">WASDE ${nextRelease.num} — ${nextRelease.label}${newCropTag}</div>
+          <div style="font-size:12px;color:${subCol};margin-top:3px;">${nextRelease.dateObj.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</div>
+        </div>
+        <div id="cal-countdown" style="font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;color:#d4a947;text-align:right;min-width:100px;">${cdStr}</div>
+      </div>`;
+  }
+
+  // Build calendar rows
+  const rows = schedule.map(r => {
+    const rd = new Date(r.date + 'T12:00:00');
+    const isPast   = rd < today;
+    const isNext   = nextRelease && r.num === nextRelease.num;
+    const newCropTag = r.newCrop ? `<span style="font-size:9px;background:#92680a;color:#fff;border-radius:2px;padding:1px 5px;letter-spacing:1px;margin-left:6px;">NEW CROP</span>` : '';
+    const rowBg = isNext ? 'rgba(212,169,71,0.1)' : (isPast ? (isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)') : 'transparent');
+    const opacity = isPast ? '0.5' : '1';
+    const dateStr = rd.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
+    const statusBadge = isPast
+      ? `<span style="font-size:9px;background:${isDark?'#2a3548':'#e2e8f0'};color:${subCol};border-radius:2px;padding:2px 6px;">RELEASED</span>`
+      : (isNext ? `<span style="font-size:9px;background:rgba(212,169,71,0.2);color:#d4a947;border-radius:2px;padding:2px 6px;border:1px solid rgba(212,169,71,0.4);">NEXT ◀</span>` : '');
+    return `
+      <tr style="background:${rowBg};opacity:${opacity};">
+        <td style="padding:10px 14px;font-size:13px;font-weight:${isNext?700:500};color:${textCol};white-space:nowrap;">WASDE ${r.num}</td>
+        <td style="padding:10px 14px;font-size:12px;color:${subCol};white-space:nowrap;">${dateStr}</td>
+        <td style="padding:10px 14px;font-size:13px;color:${textCol};">${r.label}${newCropTag}</td>
+        <td style="padding:10px 14px;text-align:right;">${statusBadge}</td>
+      </tr>`;
+  }).join('');
+
+  box.innerHTML = `
+    <button onclick="document.getElementById('cal-modal-overlay').remove()" style="position:absolute;top:12px;right:12px;background:${surfCol};border:1px solid ${bordCol};border-radius:4px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:${textCol};">✕ Close</button>
+    <div style="font-size:10px;letter-spacing:2px;color:#d4a947;margin-bottom:4px;">WASDE RELEASE SCHEDULE</div>
+    <div style="font-size:20px;font-weight:800;margin-bottom:18px;color:${textCol};">2026 USDA WASDE Calendar</div>
+    ${bannerHTML}
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:2px solid ${bordCol};">
+          <th style="padding:8px 14px;font-size:10px;letter-spacing:1px;color:${subCol};text-align:left;font-weight:600;">REPORT</th>
+          <th style="padding:8px 14px;font-size:10px;letter-spacing:1px;color:${subCol};text-align:left;font-weight:600;">DATE</th>
+          <th style="padding:8px 14px;font-size:10px;letter-spacing:1px;color:${subCol};text-align:left;font-weight:600;">MONTH</th>
+          <th style="padding:8px 14px;font-size:10px;letter-spacing:1px;color:${subCol};text-align:right;font-weight:600;">STATUS</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div style="margin-top:16px;font-size:10px;color:${subCol};line-height:1.6;">
+      All releases at 12:00 PM ET. May WASDE is the first new-crop (2026/27) projection.
+      Dashboard data is updated after each release. Source: USDA ERS.
+    </div>`;
+
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+
+  // Live countdown tick
+  if (nextRelease) {
+    const tick = setInterval(() => {
+      const el = document.getElementById('cal-countdown');
+      if (!el) { clearInterval(tick); return; }
+      el.textContent = countdown(nextRelease.dateObj);
+    }, 30000);
+  }
+
+  document.body.style.overflow = 'hidden';
+  overlay.addEventListener('remove', () => { document.body.style.overflow = ''; });
+}
+
+// Update header countdown block
+(function initHeaderCountdown() {
+  const block = document.getElementById('countdown-block');
+  if (!block || !W || !W.wasde_schedule) return;
+  const today = new Date();
+  let next = null;
+  for (const r of W.wasde_schedule) {
+    const rd = new Date(r.date + 'T12:00:00');
+    if (rd >= today) { next = { ...r, dateObj: rd }; break; }
+  }
+  if (!next) return;
+  function cd() {
+    const diff = next.dateObj - new Date();
+    if (diff <= 0) return 'RELEASED';
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    return d > 0 ? `${d}d ${h}h` : `${h}h ${m}m`;
+  }
+  block.innerHTML = `<span style="font-size:9px;letter-spacing:1px;color:#94a3b8;">NEXT WASDE</span><span style="font-size:11px;font-weight:700;color:#d4a947;cursor:pointer;" title="WASDE ${next.num} — ${next.label}" onclick="showCalendar()">WASDE ${next.num} · ${cd()}</span>`;
+  setInterval(() => {
+    const s = block.querySelector('span:last-child');
+    if (s) s.textContent = `WASDE ${next.num} · ${cd()}`;
+  }, 60000);
+})();
+
+
+
+// Close modals on Escape
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeExpandChart();
+  if (e.key === 'Escape') {
+    closeExpandChart();
+    const cal = document.getElementById('cal-modal-overlay');
+    if (cal) { cal.remove(); document.body.style.overflow = ''; }
+  }
 });
 
 // ============================================================
